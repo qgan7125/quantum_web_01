@@ -1,0 +1,45 @@
+    /* CSS Document */
+    
+    @charset "utf-8";
+    .headerbg {
+        background-image: url("../images/UA-bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 100px;
+        height: 550px;
+    }
+    
+    .bg-nav {
+        background: rgba(255, 255, 255, 0.6) !important;
+    }
+    
+    .bg-nav.scrolled {
+        background: #cccccc !important;
+    }
+    
+    .nav-pills .nav-link.active,
+    .dropdown-toggle[aria-expanded="true"],
+    .dropdown-toggle.active,
+    .dropdown-item.active,
+    a:hover {
+        background-color: #757575 !important;
+    }
+    
+    span {
+        cursor: pointer;
+    }
+    
+    .btParent {
+        position: relative;
+    }
+    
+    .modifyBt {
+        position: absolute;
+        right: 20px;
+        top: 0;
+    }
+    
+    .modifyBt:hover {
+        background-color: #4CAF50;
+        color: white;
+    }
