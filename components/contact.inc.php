@@ -4,20 +4,20 @@
             <div class="col-xl-6 p-0">
                 <div class="col bg-light ">
                     <h1 class='col-my-6 pt-3'>Contact us</h1>
-                    <from>
+                    <form action='sendEmail.php' method="post">
                         <div class='px-3'>
                             <!-- Name -->
                             <div class='row'>
                                 <div class='col p-0 pr-3'>
                                     <label for="form_name">Firstname *</label>
-                                    <input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
+                                    <input id="form_name" type="text" name="firstname" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">
                                     <div class="help-block with-errors"></div>
                                 </div>
                                 <div class='col-0'>
                                 </div>
                                 <div class='col p-0 pl-3'>
                                     <label for="form_lastname">Lastname *</label>
-                                    <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
+                                    <input id="form_lastname" type="text" name="lastname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">
                                     <div class="help-block with-errors"></div>
                                 </div>
                             </div>
@@ -47,10 +47,10 @@
                                 <textarea id="form_message" name="message" class="form-control" placeholder="Message for us *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
                             </div>
                             <div class="row col-xl-12 py-3 pl-0">
-                                <input type="submit" class="btn btn-success btn-send" value="Send message">
+                                <button type="submit" name='submit' class="btn btn-success btn-send">Send message</button>
                             </div>
                         </div>
-                    </from>
+                    </form>
                 </div>
             </div>
             <div class="col-xl-6 p-0">

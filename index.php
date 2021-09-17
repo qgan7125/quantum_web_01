@@ -1,10 +1,7 @@
 <?php require('components/head.inc.php'); ?>
 <?php include('components/navbar.inc.php'); ?>
 <!-- header backgroud -->
-<div class='headerbg text-center'> 
-    <h1>Quantum Information and Materials Group</h1>
-</div>
-<div id="carouselExampleIndicators1" class="carousel slide py-4" data-ride="carousel" style="background-color: grey">
+<div id="carouselExampleIndicators1" class="carousel slide headerbg" data-ride="carousel" style="background-color: grey">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators1" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators1" data-slide-to="1"></li>
