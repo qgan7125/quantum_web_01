@@ -7,8 +7,13 @@ $(window).scroll(function() {
 
 // $('button').hide();
 //modify buttons
-let edit = function(elm) {
-    $(elm).summernote({
+let edit = function(richText, display) {
+    $(display).hide();
+    $(richText).parent().show();
+    $(richText).html($(display).html())
+    console.log($(display).html())
+    console.log($(richText).html())
+    $(richText).summernote({
         focus: true,
         height: 300,
         placeholder: 'write here...',
@@ -28,13 +33,15 @@ let edit = function(elm) {
     });
 }
 
-let save = function(elm) {
-    $(elm).summernote('destroy');
+let save = function(richText, display) {
+    $(display).show();
+    $(richText).parent().hide();
+    $(display).html($(richText).summernote('code'));
+    $('img').css({ margin: '30px' });
 }
 
 let n = 1;
 let add = function(elm) {
-
 
     let box = $("<div>", {
         'id': `box${n}`,
@@ -68,8 +75,6 @@ let add = function(elm) {
         text: 'Remove',
         'onclick': `remove('#box${n}')`
     })
-
-
 
 
     let content = $("<div>", {
