@@ -10,8 +10,8 @@
     <div class='text-center btParent' >
         <h1>Principal Investigator</h1>  
         <div class="btn-group modifyBt" role='group'>
-            <button type='button' class='btn btn-secondary mr-1' onclick="edit('#PI_INFO')">Edit</button>
-            <button type='button' class='btn btn-secondary' onclick="save('#PI_INFO')">Save</button>
+            <button type='button' class='btn btn-secondary mr-1' onclick="edit('PI_edit', 'PI_INFO')">Edit</button>
+            <button type='button' class='btn btn-secondary' onclick="save('PI_edit', 'PI_INFO')">Save</button>
         </div>   
     </div>
     <div class="d-flex flex-row offset-xl-4 mb-2 ">
@@ -21,7 +21,9 @@
             <div >
             Dr. Zheshen Zhang is an Assistant Professor in the Department of Materials Science and Engineering and the James C. Wyant College of Optical Sciences at the University of Arizona. Dr. Zhang received the PhD degree from the Georgia Institute of Technology. Prior to joining UA in Fall 2017, Dr. Zhang was a Postdoctoral Associate and then a Research Scientist at MIT. Dr. Zhang's research encompasses a broad swath of the experimental and theoretical aspects of quantum networks, quantum communications, quantum sensing, and quantum computing. Dr. Zhang is an Editorial Board Member of Communications Physics.
             </div>
-            
+        </div>
+        <div style='display:none;'>
+            <textarea id="PI_edit" ></textarea>
         </div>
     </div>
 <hr>
@@ -30,7 +32,7 @@
 <section id='PHD'>
     <div  class='text-center btParent'>
         <h2>Postdoctoral Researchers</h2>
-        <button type='button' class='btn btn-secondary modifyBt' onclick="save('#PR1')">Add</button>
+        <button type='button' class='btn btn-secondary modifyBt' onclick="save('PR1')">Add</button>
     </div>
     <div class='row'>
         <div class='col-xl-4 text-center btParent'>
@@ -44,8 +46,11 @@
                 </p>
             </div>
             <div class="btn-group-vertical modifyBtS" role='group'>
-                <button type='button' class='btn btn-secondary mr-1' onclick="edit('#PHD1')">Edit</button>
-                <button type='button' class='btn btn-secondary' onclick="save('#PHD1')">Save</button>
+                <button type='button' class='btn btn-secondary mr-1' onclick="edit('PHD1_edit','PHD1')">Edit</button>
+                <button type='button' class='btn btn-secondary' onclick="save('PHD1_edit','PHD1')">Save</button>
+            </div>
+            <div style='display:none;'>
+                <textarea id="PHD1_edit" ></textarea>
             </div>
         </div>
         <div class='col-xl-4 text-center'>

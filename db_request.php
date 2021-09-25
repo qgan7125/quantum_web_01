@@ -25,15 +25,17 @@ if (!$conn){
 //     echo "0 results";
 //   }
 
-
-// if (isset($_POST['save']) && !empty($_POST['Teaching'])){
-//     $sql = "INSERT INTO events (id, event) VALUE(1, '".$_POST['Teaching']."')";
-//     if ($conn->query($sql) === TRUE) {
-//         echo "New record created successfully";
-//     } else {
-//     echo "Error: " . $sql . "<br>" . $conn->error;
-//     }
-// }
+echo $_POST['content'];
+if (isset($_POST['content']) && !empty($_POST['content'])){
+    $sql = "INSERT INTO events (id, event) VALUE(0, '".$_POST['content']."')";
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+}else{
+    echo "None";
+}
 
 $conn->close()
 ?>

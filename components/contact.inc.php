@@ -47,7 +47,7 @@
                                 <textarea id="form_message" name="message" class="form-control" placeholder="Message for us *" rows="4" required="required" data-error="Please, leave us a message."></textarea>
                             </div>
                             <div class="row col-xl-12 py-3 pl-0">
-                                <button type="submit" name='submit' class="btn btn-success btn-send">Send message</button>
+                                <input type="submit" name='submit' class="btn btn-success btn-send" value='Send message'>
                             </div>
                         </div>
                     </form>

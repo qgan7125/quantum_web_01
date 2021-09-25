@@ -8,36 +8,36 @@ $(window).scroll(function() {
 // $('button').hide();
 //modify buttons
 let edit = function(richText, display) {
-    $(display).hide();
-    $(richText).parent().show();
-    $(richText).html($(display).html())
-    console.log($(display).html())
-    console.log($(richText).html())
-    $(richText).summernote({
-        focus: true,
-        height: 300,
-        placeholder: 'write here...',
-        toolbar: [
-            ['basic', ['style', 'fontname']],
-            ['style', ['bold', 'italic', 'underline', 'clear']],
-            ['font', ['strikethrough', 'superscript', 'subscript']],
-            ['fontsize', ['fontsize']],
-            ['color', ['forecolor', 'backcolor']],
-            ['block', ['ul', 'ol', 'paragraph']],
-            ['media', ['link', 'picture', 'video', 'table']],
-            ['height', ['height', 'cideview', 'fullscreen', 'undo', 'redo']]
-        ],
-        fontSizes: ['8', '9', '10', '11', '12', '13', '14', '15', '16', '17',
-            '18', '19', '20', '25', '30'
-        ]
+    $('#' + display).hide();
+    $('#' + richText).parent().parent().show();
+    $('#' + richText).html($('#' + display).html())
+    tinymce.init({
+        selector: '#' + richText,
+        toolbar: "code | undo redo | styleselect | bold italic | fontselect fontsizeselect forecolor backcolor| numlist bullist | alignleft aligncenter alignright alignjustify | outdent indent| link unlink image imagetools quickimage| paste searchreplace",
+        plugins: "code  image  paste link quickbars lists searchreplace table",
+        menubar: 'edit view insert format table ',
+        paste_data_images: true,
+        height: 400
     });
 }
 
 let save = function(richText, display) {
-    $(display).show();
-    $(richText).parent().hide();
-    $(display).html($(richText).summernote('code'));
-    $('img').css({ margin: '30px' });
+    $('#' + display).show();
+    $('#' + richText).parent().parent().hide();
+    $('#' + display).html(tinymce.get(richText).getContent());
+    tinyMCE.triggerSave();
+    $.ajax({
+        type: 'POST',
+        url: 'db_request.php',
+        data: $('#postForm').serialize(),
+        success: function(data, status, request) {
+            console.log('success')
+            console.log($('#postForm').serialize())
+        },
+        error: function(req, status, error) {
+            console.log('error')
+        }
+    })
 }
 
 let n = 1;
@@ -48,6 +48,7 @@ let add = function(elm) {
         'class': 'contentBox  btParent'
     })
 
+    // buttons 
     let buttonG = $("<div>", {
         'class': "btn-group modifyBt",
         'role': 'group'
@@ -57,7 +58,7 @@ let add = function(elm) {
         'type': 'button',
         'class': "btn btn-secondary mr-1",
         text: 'Edit',
-        'onclick': `edit('#content${n}')`
+        'onclick': `edit('content${n}','display${n}')`
     })
 
 
@@ -65,7 +66,7 @@ let add = function(elm) {
         'type': 'button',
         'class': "btn btn-secondary mr-1",
         text: 'Save',
-        'onclick': `save('#content${n}')`
+        'onclick': `save('content${n}', 'display${n}')`
     })
 
 
@@ -76,8 +77,19 @@ let add = function(elm) {
         'onclick': `remove('#box${n}')`
     })
 
+    // contents
+    let display = $("<div>", {
+        'id': `display${n}`,
+        'class': 'p-4'
+    })
 
-    let content = $("<div>", {
+    let textBox = $("<div>", {
+        'id': `textBox${n}`,
+        'style': 'display:none;'
+    })
+
+
+    let content = $("<textarea>", {
         'id': `content${n}`,
         'class': 'p-2'
     })
@@ -86,10 +98,11 @@ let add = function(elm) {
     buttonG.append(buttonSave)
     buttonG.append(buttonRemove)
     box.append(buttonG)
+    box.append(display)
+    textBox.append(content)
+    box.append(textBox)
 
-    box.append(content)
-
-    $(elm).append(box);
+    $("#" + elm).append(box);
 
     window.location = `#box${n}`
 
@@ -98,4 +111,5 @@ let add = function(elm) {
 
 let remove = function(elm) {
     $(elm).remove();
+    n--;
 }

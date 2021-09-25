@@ -10,8 +10,8 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/popper.min.js"></script> 
     <script src="js/bootstrap-4.4.1.js"></script>
-	
+	<script src="https://cdn.tiny.cloud/1/y1i5xyjo87b3ymfg7y3jfssatrzey1nkkdso5vn8y9ltky33/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	<script src="js/script.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+	
   </body>
 </html>
